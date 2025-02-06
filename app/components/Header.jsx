@@ -1,3 +1,6 @@
+'use client'
+
+import { Button } from "@heroui/react"
 import Link from "next/link"
 
 export default function Header() {
@@ -33,7 +36,8 @@ export default function Header() {
                 }
             </div>
             <Link href='/login'>
-                <button className="border border-blue-600 rounded-md font-semibold px-4 py-2 hover:bg-blue-600">Login</button>
+                {/* <button className="border border-blue-600 rounded-md font-semibold px-4 py-2 hover:bg-blue-600">Login</button> */}
+                <Button color="primary">Login</Button>
             </Link>
         </nav>
     )
