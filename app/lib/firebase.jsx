@@ -9,10 +9,10 @@ const firebaseConfig = {
   apiKey: "AIzaSyD269BxnX4jOD3mXTCh3-t3J-OIveLstTM",
   authDomain: "e-shop-7c9f7.firebaseapp.com",
   projectId: "e-shop-7c9f7",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  storageBucket: "e-shop-7c9f7.firebasestorage.app",
+  messagingSenderId: "1035443372321",
   appId: "1:1035443372321:web:3503c806856769d68ffe60",
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
+  measurementId: "G-S3EYP26H8N"
 };
 
 // Initialize Firebase

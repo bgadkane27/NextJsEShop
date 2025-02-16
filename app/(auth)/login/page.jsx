@@ -1,12 +1,22 @@
 "use client"
 
+import { useAuth } from "@/app/contexts/AuthContext";
 import { auth } from "@/app/lib/firebase";
 import { Button } from "@heroui/react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import {useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function LoginPage() {
+    const { user } = useAuth();
+    const router = useRouter();
+    useEffect(() => {
+        if(user){
+            router.push("/dashboard");
+        }
+    },[user]);
     return (
         <main className="w-full min-h-screen flex items-center justify-center">
             <section className="flex flex-col gap-2 bg-white rounded-xl p-4">
@@ -48,18 +58,22 @@ export default function LoginPage() {
 }
 
 function SignInWithGoogleComponent(){
-
+    const [isLoading, setIsLoading] = useState(false);
     const handleLogin = async()=>{
+        setIsLoading(true);
         try {
           const user  = await signInWithPopup(auth, new GoogleAuthProvider())
         } catch (error) {
             toast.error(error?.message);
         }
+        setIsLoading(false);
     }
     return <Button 
     color="primary" 
     variant="faded" 
-    className="mt-2"
+    className="mt-1"
     onPress={handleLogin}
+    isLoading={isLoading}
+    isDisabled={isLoading}
     >Continue with Google</Button>
 }
