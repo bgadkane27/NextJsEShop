@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Boxes, Component, Layers2, LayoutDashboard, LogOut, ShieldCheck, ShoppingCart, Sparkles, Target, UsersRound } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Button } from "@heroui/react";
+import { signOut } from "firebase/auth";
+import toast from "react-hot-toast";
+import { auth } from "@/app/lib/firebase";
 
 export default function Sidebar() {
 
@@ -71,7 +74,19 @@ export default function Sidebar() {
                 }
             </ul>
              <div className="flex px-4">
-                <Button color="primary"><LogOut className="w-5 h-5" /> Logout</Button>
+                <Button color="primary"
+                    onPress={async() => { 
+                        try{
+                            await toast.promise(signOut(auth), {
+                                loading: "Logging out...",
+                                success: "Logged out successfully.",
+                                error: (e) => e?.message
+                            })
+                        }catch(error){
+                            toast.error(error?.message);
+                        }
+                    }}
+                ><LogOut className="w-5 h-5" /> Logout</Button>
              </div>
         </section>
     )
