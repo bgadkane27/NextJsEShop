@@ -7,5 +7,6 @@ body{
   padding: 0 1.2rem;
   box-sizing: border-box;
   /* background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%); */
-  background-image: linear-gradient(-225deg, #41d4d141 0%, #C5C1FF 56%, #f79f7c8c 100%);
+  /* background-image: linear-gradient(-225deg, #41d4d141 0%, #C5C1FF 56%, #f79f7c8c 100%); */
+  /* background: #f3f3f3; */
 }
