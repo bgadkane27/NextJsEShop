@@ -1,7 +1,7 @@
 "use client"
 
-import { useAuth } from "@/app/contexts/AuthContext";
-import { auth } from "@/app/lib/firebase";
+import { useAuth } from "@/contexts/AuthContext";
+import { auth } from "@/lib/firebase";
 import { Button } from "@heroui/react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Link from "next/link";
@@ -45,7 +45,7 @@ export default function LoginPage() {
                                     Forgot password?</button>
                             </Link>
                         </div>
-                        <Button color="primary" className="text-md">Sign in</Button>
+                        <Button color="primary" className="text-md">Signin</Button>
                     </form>
                 </div>
                 <hr />

@@ -37,7 +37,7 @@ export default function Header() {
             </div>
             <Link href='/login'>
                 {/* <button className="border border-blue-600 rounded-md font-semibold px-4 py-2 hover:bg-blue-600">Login</button> */}
-                <Button color="primary">Login</Button>
+                <Button color="primary">Signin</Button>
             </Link>
         </nav>
     )

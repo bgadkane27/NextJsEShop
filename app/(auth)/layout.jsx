@@ -1,6 +1,6 @@
 "use client";
 
-import AuthContextProvider from "@/app/contexts/AuthContext";
+import AuthContextProvider from "@/contexts/AuthContext";
 
 export default function Layout({ children }) {
     return(

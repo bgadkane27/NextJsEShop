@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "@heroui/react";
 import { signOut } from "firebase/auth";
 import toast from "react-hot-toast";
-import { auth } from "@/app/lib/firebase";
+import { auth } from "@/lib/firebase";
 
 export default function Sidebar() {
 
@@ -14,47 +14,47 @@ export default function Sidebar() {
         {
             name: "Dashboard",
             link: "/admin",
-            icon: <LayoutDashboard className="w-5 h-5" />
+            icon: <LayoutDashboard className="w-5 h-5" color="blue" />
         },
         {
             name: "Products",
-            link: "/admin/products",
-            icon: <Component className="w-5 h-5" />
+            link: "/admin/products", 
+            icon: <Component className="w-5 h-5" color="blue" />
         },
         {
             name: "Categories",
             link: "/admin/categories",
-            icon: <Layers2 className="w-5 h-5" />
+            icon: <Layers2 className="w-5 h-5" color="blue" />
         },
         {
             name: "Brands",
             link: "/admin/brands",
-            icon: <Target className="w-5 h-5" />
+            icon: <Target className="w-5 h-5" color="blue"/>
         },
         {
             name: "Orders",
             link: "/admin/orders",
-            icon: <ShoppingCart className="w-5 h-5" />
+            icon: <ShoppingCart className="w-5 h-5" color="blue" />
         },
         {
             name: "Customers",
             link: "/admin/customers",
-            icon: <UsersRound className="w-5 h-5" />
+            icon: <UsersRound className="w-5 h-5" color="blue"/>
         },
         {
             name: "Reviews",
             link: "/admin/reviews",
-            icon: <Sparkles className="w-5 h-5" />
+            icon: <Sparkles className="w-5 h-5" color="blue"/>
         },
         {
             name: "Collections",
             link: "/admin/collections",
-            icon: <Boxes className="w-5 h-5" />
+            icon: <Boxes className="w-5 h-5" color="blue"/>
         },
         {
             name: "Admins",
             link: "/admin/admins",
-            icon: <ShieldCheck className="w-5 h-5" />
+            icon: <ShieldCheck className="w-5 h-5" color="blue"/>
         }
     ]
 
@@ -64,7 +64,7 @@ export default function Sidebar() {
                 <img src="/logo.webp" alt="" className="w-10 h-10" />
                 <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">Bruno</span>
             </div>
-            <ul className="flex-1 flex flex-col gap-3 px-3">
+            <ul className="flex-1 flex flex-col gap-3 px-3 h-full overflow-y-auto">
                 {
                     menuList?.map((item, key) => {
                         return (
@@ -73,21 +73,21 @@ export default function Sidebar() {
                     })
                 }
             </ul>
-             <div className="flex px-4">
+            <div className="flex px-4">
                 <Button color="primary"
-                    onPress={async() => { 
-                        try{
+                    onPress={async () => {
+                        try {
                             await toast.promise(signOut(auth), {
-                                loading: "Logging out...",
-                                success: "Logged out successfully.",
+                                loading: "Signing out...",
+                                success: "Signout done successfully.",
                                 error: (e) => e?.message
                             })
-                        }catch(error){
+                        } catch (error) {
                             toast.error(error?.message);
                         }
                     }}
-                ><LogOut className="w-5 h-5" /> Logout</Button>
-             </div>
+                ><LogOut className="w-5 h-5" />Signout</Button>
+            </div>
         </section>
     )
 }
@@ -97,7 +97,8 @@ function Tab({ item }) {
     const isSelected = pathname === item?.link;
     return (
         <Link href={item?.link}>
-            <li className={`flex items-center gap-2 font-medium px-1 py-1 rounded ease-in-out transition-all duration-400
+            <li className={`flex items-center gap-3 font-medium px-1 py-1 
+            rounded ease-in-out transition-all duration-400 
                 ${isSelected ? "bg-pink-400 text-white" : "text-black"}`
             } >{item?.icon}{item?.name}</li>
         </Link>

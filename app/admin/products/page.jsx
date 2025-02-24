@@ -2,6 +2,6 @@
 
 export default function Page(){
     return(
-        <main>Products</main>
+        <main>Products Page</main>
     )
 }
