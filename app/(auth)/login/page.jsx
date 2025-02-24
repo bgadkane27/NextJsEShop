@@ -45,7 +45,7 @@ export default function LoginPage() {
                                     Forgot password?</button>
                             </Link>
                         </div>
-                        <Button color="primary" className="text-md">Signin</Button>
+                        <Button color="primary" className="text-md">Sign in</Button>
                     </form>
                 </div>
                 <hr />
@@ -62,9 +62,11 @@ function SignInWithGoogleComponent(){
     const handleLogin = async()=>{
         setIsLoading(true);
         try {
-          const user  = await signInWithPopup(auth, new GoogleAuthProvider())
+          const result  = await signInWithPopup(auth, new GoogleAuthProvider());
+          const user = result.user; 
+            toast.success(`Authenticated as ${user.email}`);
         } catch (error) {
-            toast.error(error?.message);
+            toast.error("An error occured during sign in.");
         }
         setIsLoading(false);
     }

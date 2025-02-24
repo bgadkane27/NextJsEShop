@@ -79,14 +79,14 @@ export default function Sidebar() {
                         try {
                             await toast.promise(signOut(auth), {
                                 loading: "Signing out...",
-                                success: "Signout done successfully.",
-                                error: (e) => e?.message
+                                success: "Sign out done successfully.",
+                                error: "An error occurred during sign out."
                             })
                         } catch (error) {
                             toast.error(error?.message);
                         }
                     }}
-                ><LogOut className="w-5 h-5" />Signout</Button>
+                ><LogOut className="w-5 h-5" />Sign out</Button>
             </div>
         </section>
     )
