@@ -4,6 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { auth } from "@/lib/firebase";
 import { Button } from "@heroui/react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { LogIn } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {useEffect, useState } from "react";
@@ -45,7 +46,7 @@ export default function LoginPage() {
                                     Forgot password?</button>
                             </Link>
                         </div>
-                        <Button color="primary" className="text-md">Sign in</Button>
+                        <Button color="primary" className="text-md"><LogIn className="w-5 h-4" />Sign in</Button>
                     </form>
                 </div>
                 <hr />
@@ -77,5 +78,5 @@ function SignInWithGoogleComponent(){
     onPress={handleLogin}
     isLoading={isLoading}
     isDisabled={isLoading}
-    >Continue with Google</Button>
+    ><img src="/google-logo.svg" alt="Google Logo" className="h-5"/>Continue with Google</Button>
 }
