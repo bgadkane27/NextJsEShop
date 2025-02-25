@@ -19,7 +19,7 @@ export default function LoginPage() {
         }
     },[user]);
     return (
-        <main className="w-full min-h-screen flex items-center justify-center">
+        <main className="w-full min-h-screen flex items-center justify-center bg-gray-100">
             <section className="flex flex-col gap-2 bg-white rounded-xl p-4">
                 <div className="flex flex-col items-center justify-center gap-4 p-4">
                     <img src="/logo.webp" alt="logo"

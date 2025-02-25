@@ -14,57 +14,58 @@ export default function Sidebar() {
         {
             name: "Dashboard",
             link: "/admin",
-            icon: <LayoutDashboard className="w-5 h-5" color="blue" />
+            icon: <LayoutDashboard className="h-4" />
         },
         {
             name: "Products",
             link: "/admin/products", 
-            icon: <Component className="w-5 h-5" color="blue" />
+            icon: <Component className="h-4" />
         },
         {
             name: "Categories",
             link: "/admin/categories",
-            icon: <Layers2 className="w-5 h-5" color="blue" />
+            icon: <Layers2 className="h-4" />
         },
         {
             name: "Brands",
             link: "/admin/brands",
-            icon: <Target className="w-5 h-5" color="blue"/>
+            icon: <Target className="h-4" />
         },
         {
             name: "Orders",
             link: "/admin/orders",
-            icon: <ShoppingCart className="w-5 h-5" color="blue" />
+            icon: <ShoppingCart className="h-4" />
         },
         {
             name: "Customers",
             link: "/admin/customers",
-            icon: <UsersRound className="w-5 h-5" color="blue"/>
+            icon: <UsersRound className="h-4" />
         },
         {
             name: "Reviews",
             link: "/admin/reviews",
-            icon: <Sparkles className="w-5 h-5" color="blue"/>
+            icon: <Sparkles className="h-4" />
         },
         {
             name: "Collections",
             link: "/admin/collections",
-            icon: <Boxes className="w-5 h-5" color="blue"/>
+            icon: <Boxes className="h-4" />
         },
         {
             name: "Admins",
             link: "/admin/admins",
-            icon: <ShieldCheck className="w-5 h-5" color="blue"/>
+            icon: <ShieldCheck className="h-4" />
         }
     ]
 
     return (
-        <section className="flex flex-col gap-5 w-1/5 border-r overflow-hidden justify-stretch">
-            <div className="flex items-center gap-2 px-4 bg-blue-600">
+        <section className="flex flex-col w-1/5 border-r overflow-hidden justify-stretch">
+            <div className="flex items-center gap-2 px-4 py-2 bg-blue-600 h-[60px] max-h-[60px]">
                 <img src="/logo.webp" alt="" className="w-10 h-10" />
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">Bruno</span>
+                {/* <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent">Bruno</span> */}
+                <span className="text-xl font-bold text-white">Bruno</span>
             </div>
-            <ul className="flex-1 flex flex-col gap-3 px-3 h-full overflow-y-auto bg-gray-200">
+            <ul className="flex-1 flex flex-col pt-4 overflow-y-auto bg-gray-100">
                 {
                     menuList?.map((item, key) => {
                         return (
@@ -73,7 +74,7 @@ export default function Sidebar() {
                     })
                 }
             </ul>
-            <div className="flex px-4">
+            {/* <div className="flex px-4">
                 <Button color="primary"
                     onPress={async () => {
                         try {
@@ -87,7 +88,7 @@ export default function Sidebar() {
                         }
                     }}
                 ><LogOut className="w-5 h-5" />Sign out</Button>
-            </div>
+            </div> */}
         </section>
     )
 }
@@ -97,9 +98,9 @@ function Tab({ item }) {
     const isSelected = pathname === item?.link;
     return (
         <Link href={item?.link}>
-            <li className={`flex items-center gap-3 font-medium px-1 py-1 
-            rounded ease-in-out transition-all duration-400 
-                ${isSelected ? "bg-pink-400 text-white" : "text-black"}`
+            <li className={`flex items-center gap-2 font-normal px-8 py-2
+            ease-in-out transition-all duration-400 hover:bg-blue-100
+                ${isSelected ? "bg-blue-400 text-white" : "text-black"}`
             } >{item?.icon}{item?.name}</li>
         </Link>
     )
